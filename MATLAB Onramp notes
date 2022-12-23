@@ -1,0 +1,15 @@
+## 12/22/2022 Notes of toturial from MATLAB Onramp of Mathworks
+
+## to save all the variables in the workspace to a MAT-file 
+save datafile.mat
+## save specific variables into .mat file, i.e save variable k into datafile.mat
+save datafile k
+##  load variables from a MAT-file
+load datafile.mat
+## load specific variables from .mat file, i.e load variable from datafile.mat
+load datafile k
+## Display the contents of the variable by entering the name of the variable(like R)
+myvar
+## built-in functions, i.e abs, eig, sin, sqrt
+x = abs(-1)
+y = sqrt(-9)
