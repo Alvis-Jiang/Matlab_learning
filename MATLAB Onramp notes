@@ -13,3 +13,36 @@ myvar
 ## built-in functions, i.e abs, eig, sin, sqrt
 x = abs(-1)
 y = sqrt(-9)
+
+# plot data
+plot(x,y)
+# r: red
+  k: black
+  --: dashed line
+  o: circle markers
+  *: star markers
+  s: square markers
+plot(x,y,"r--o")
+# plot one line on top of another in the same axes by using the hold on command
+plot(x1,y1)
+hold on
+plot(x2,y2)
+hold off
+# When you plot a single vector by itself, MATLAB uses the vector values as the 
+  y-axis data and sets the x-axis data to the range of 1 to n (the number of elements in the vector)
+a = rand(1,20)  
+plot(a)
+# Line Properties
+plot(a, "ro-", "LineWidth", 5)
+## Annotating Plots
+title("PLOT TITLE")
+ylabel("Y LABEL")
+xlabel("X LABEL")
+legend("A", "B")
+
+# Logical Indexing: True = 1; False = 0
+                    AND (&) ; OR (|).
+a = (1,2,3,4,5)     output:
+x = a > 3           x = 0 0 0 1 1 
+a(a > 3)            4 5
+a(a > 3) = 10       a = 1 2 3 10 10
