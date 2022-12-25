@@ -46,3 +46,19 @@ a = (1,2,3,4,5)     output:
 x = a > 3           x = 0 0 0 1 1 
 a(a > 3)            4 5
 a(a > 3) = 10       a = 1 2 3 10 10
+
+# Programming
+# if loop
+if condition1 
+   code 
+elseif condition2
+   code 
+else
+   code
+end
+# for loop(repeats 4 times)
+  pause(0.1): stop the loop for 0.1s
+for index = 1: 4
+    disp(index)
+    pause(0.2)
+end
