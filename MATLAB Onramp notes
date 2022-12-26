@@ -14,6 +14,34 @@ myvar
 x = abs(-1)
 y = sqrt(-9)
 
+# Array Types
+4	# scalar
+[3 5]	# row vector
+[1;3]	# column vector
+[3 4 5; 6 7 8]	# matrix
+
+# Evenly Spaced Vectors
+input:                output:     
+x = 1:4               1 2 3 4 # include the first and the last position
+x = 1:0.5:2           1  1.5 2 
+x = linspace(1,7,4)   1 3 5 7 # Create a vector with 4 elements, which is from 1 to 7
+
+# Matrix 
+rand(n) # Create a square matrix of value of 0 to 1,  with n rows and n columns, with 
+rand(m, n) # Create a  matrix value of 0 to 1, with m rows and n columns
+randi(m) # Create a random integer between 1 to m
+ones(m, n)/zeros(m, n) # Create a rectangular matrix with 2 rows and 3 columns of 1/0s.
+
+# Array Indexing
+A(end,2) # Access the element in the second column of the last row
+A(2,:) # Access the entire second row
+A(1:3,:) # Access all columns of the first three rows.
+
+# Multiple Outputs
+[xrow,xcol] = size(x) # Save the number of rows and columns in x to two different variables.
+[xMax,idx] = max(x) # Calculate the maximum value of x and its corresponding index value.
+
+
 # plot data
 plot(x,y)
 # r: red
@@ -34,14 +62,13 @@ a = rand(1,20)
 plot(a)
 # Line Properties
 plot(a, "ro-", "LineWidth", 5)
-## Annotating Plots
+# Annotating Plots
 title("PLOT TITLE")
 ylabel("Y LABEL")
 xlabel("X LABEL")
 legend("A", "B")
 
-# Logical Indexing: True = 1; False = 0
-                    AND (&) ; OR (|).
+# Logical Indexing: True = 1; False = 0; AND (&) ; OR (|).
 a = (1,2,3,4,5)     output:
 x = a > 3           x = 0 0 0 1 1 
 a(a > 3)            4 5
