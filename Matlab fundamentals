@@ -19,11 +19,16 @@ y = reshape(x,5,52)
 y = reshape(x,5,[]) % leave one of the dimensions blank when calling reshape and that dimension will be calculated automatically. 
 
 % Accessing Multiple Elements of Arrays
-
-
-
 % remove elements from vector 
                             output:
 v = [1 2 3 4 5]             [1 2 3 4 5] 
 v([2 4]) = []               [1 3 5]
    
+% round numbers in an array M to n decimal places
+round(M,n)
+
+% identify and count missing values in a vector
+isnan(v)
+% count the number of missing values 
+nnz(isnan(v)) % nnz: number non-zero
+
