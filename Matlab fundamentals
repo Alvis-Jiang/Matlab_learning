@@ -32,3 +32,26 @@ isnan(v)
 % count the number of missing values 
 nnz(isnan(v)) % nnz: number non-zero
 
+% Statistical Operations on Matrices
+% Many statistical functions accept an optional dimensional argument 
+A = rand(12, 20)
+% mean() calculates the average of each column by default
+mean(A, "omitnan") % omitting missing values
+mean(A, 2, "omitnan") % by row
+% min() and max() min and max functions also calculate the minimum and maximum of the columns of a matrix by default
+% They omit missing values by default
+min(A,[],2) % by rows
+%  get the mean, minimum, and maximum, of all of the elements in array
+max(A, [], "all")
+min(A, [], "all")
+mean(A, "all")
+
+% calculate the difference between elements of a  vector
+diff()
+%  calculates the sum of an element with all the previous elements of a vector
+% if the input is a matrix, the sums are calculated by column
+cumsum( ) 
+
+% Backslash Operator for the caculation of Matrix 
+x=B/A	% Solves x*A = B (for x)
+x=A\B	% Solves A*x = B (for x)
