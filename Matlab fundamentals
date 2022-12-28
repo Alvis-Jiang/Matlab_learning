@@ -55,3 +55,29 @@ cumsum( )
 % Backslash Operator for the caculation of Matrix 
 x=B/A	% Solves x*A = B (for x)
 x=A\B	% Solves A*x = B (for x)
+
+% Plot type
+stem()
+stairs()
+area()
+scatter(A, B, S, "K") % S：size of the markers; K : color
+
+% Changing X-Axis Tick Labels
+xticklabels(["Label 1" "Label 2" ...])
+xticks([1 2 3]) % set the x-axis tick values 
+xtickangle()  % change the angle of the text
+
+%  set the x- and y-axis limits
+xlim([1 9])
+ylim([2 4])
+
+% if matrix is an m-by-n matrix, then x = n, y = m
+surf(X,Y,matrix)
+mesh(yr, mth, revenue)
+contour(yr, mth, revenue)
+
+
+% Logical Operations and Variables
+A & B % A and B
+A | B % A or B
+A & ~B % A and NOT B 
