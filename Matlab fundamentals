@@ -81,3 +81,20 @@ contour(yr, mth, revenue)
 A & B % A and B
 A | B % A or B
 A & ~B % A and NOT B 
+
+%  find if any of the elements in a logical vector are true
+any([true true false])
+% find if all the elements in a logical vector are true
+all([true true true])
+%  count the Number of Non-Zero values in an array
+nnz()
+% Use the NOT operator ~ on the logical vector to change the logical values
+a = [true true false]
+b = ~a
+
+% use the function find() to find the indices of the true values in a logical vector
+
+v = [false true true false false true true false];
+idx = find(v, 2, "last/first") % obtain the locations of just the first or last 2 true values in a logical vector 
+idx = 
+    [6 7]
