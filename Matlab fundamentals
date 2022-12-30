@@ -98,3 +98,96 @@ v = [false true true false false true true false];
 idx = find(v, 2, "last/first") % obtain the locations of just the first or last 2 true values in a logical vector 
 idx = 
     [6 7]
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————    
+% Storing Data in a Table
+% Import Table Data 
+data = readtable("dataFile.txt")
+% we can also decdie the type of imported data
+data = readtable("dataFile.txt", "TextType", "string")
+% Create a table, data with variables a, b, and c
+data = table(a,b,c)
+% convert a matrix A to a table data, with specific variable names
+data = array2table(A, "VariableNames", ["X" "Y"])
+% Sort a table on specific variables
+Sort = sortrows(tableName, "SortingVariable", "descend/ascend")
+%  Sort by a second variables
+tSort = sortrows(tableName, ["var1" "var2"],"descend/ascend")
+
+% Remove variables from a table
+% T: table name
+T(:,["VarName1" "VarName2"]) = []
+T = removevars(T,["VarName1" "VarName2"])
+% Reorder variables in a table, using the index
+T = T(:,[2 1 3:end])
+% or move a column to a new location in a table.
+data = movevars(data,"var2move","After",num)
+
+% Use dot notation to index into the table T with variable VarName1 to get numeric data
+numArray = tableName.VariableName
+% add a new variable to a table using dot notation
+tableName.NewVarName = newData
+
+% Use curly braces to access data from multiple variables 
+T = T{1:3,[2 7]};
+T = T{1:3,["VarName1" "VarName2"]};
+
+% Write table
+writetable(tableName,"myFile.txt","Delimiter","\t")
+
+_____________________________________________________________________________________________
+% oncatenate two tables using square brackets(like array)
+newTable = [table1 table2]
+% convert an array to table
+T = array2table(array, "VariableNames",["Var1" "Var2"])
+%remove columns of a table 
+T = removevars(tbl,["Var1" "Var2"])
+%  merge two tables using any variables with the same names as key variables
+newTable = join(table1,table2)
+
+% Index into a cell array using parentheses, () will return a cell array subset
+% Use curly braces {} to extract the contents of a cell
+T.Properties.VariableNames{1}  % obtain a value 
+T.Properties.VariableNames(1)  % obtain a cell
+
+______________________________________________________________________________________________
+% Data and time 
+% Create datatime variable with numeric values 
+d = datetime(year,month,day);
+datetime(2014,5,25)
+ans =
+   25-May-2014
+% six input arguments: year, month, day, hour, minutes, second
+d = datetime(2016, 2, 29, 17,0,0)
+$ calculate time length
+timeStart = datetime(2015, 8, 8)
+timeEnd = datetime(2016, 5, 17)
+timeLength = timeEnd - timeStart
+ans = 
+    6792:00:00
+% Convert timeLength to days
+timeLength = days(timeLength)
+% Duration functions includes  days(), hours() and minutes()
+% Durations can be added up 
+startTime = hours(12)
+startTime = startTime + minutes(45)
+ans =
+     12.75 hr
+% create a calendar duration from two datetime values
+between(timeStart，timeEnd)
+
+_______________________________________________________________________________________________
+% Representing Discrete Categories
+% convert a string array to a categorical using the categorical function
+catArray = categorical(stringArray)
+% use summary() function to view categories
+%  merge multiple categories into one, and even give it a new name
+x = categorical([ 2 1 2 3 ])
+x = 
+     2      1      2      3
+y = mergecats(x,["1" "3"],"C")
+y = 
+     2      C      2      C
+
+
+
+
