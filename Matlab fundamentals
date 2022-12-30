@@ -178,15 +178,115 @@ between(timeStart，timeEnd)
 _______________________________________________________________________________________________
 % Representing Discrete Categories
 % convert a string array to a categorical using the categorical function
-catArray = categorical(stringArray)
+catArray = categorical(stringArray, [value1, valu2...], [name1, name2....])
 % use summary() function to view categories
-%  merge multiple categories into one, and even give it a new name
 x = categorical([ 2 1 2 3 ])
 x = 
      2      1      2      3
+% more 
+%  merge multiple categories into one, and even give it a new name
 y = mergecats(x,["1" "3"],"C")
 y = 
      2      C      2      C
+% After create categories, we can use them for logical comparsion, but what's the advantages of this?
+_________________________________________________________________________________________________
+% Normalizing Data
+% normalize data using z-scores
+xNorm = normalize(X)
+% center the data on zero by including the argument "center" set to "mean"
+xCenter = normalize(X,"center","mean")
+% normalize data by the first value
+xScale = normalize(X,"scale","first")
+% stretch or compress data in a range [a, b]
+xRange = normalize(X,"range",[a b])
+
+% Dealing with Missing Data
+% identify NaN values
+isnan()
+% identifies missing values in  NaN values and other data types as well
+ismissing(data,[val1 val2 val3 ...])
+% covert certain value in data to nan
+dataStandardized = standardizeMissing(data,-9999)
+% remove missing data
+[cleanX,missingIdx] = rmmissing(X)
+
+% filling missing data
+% fillmissing() function is applied to a matrix, it acts on the columns independently
+% By default, the fillmissing function assumes the observations are equally spaced
+% we can specify the spacing of the observations by providing a vector of location x
+yinterp = fillmissing(y, "method", "SamplePoints", x)
+_______________________________________________________________________________________________
+% Smooth Data
+% We can smooth a sine curve into a flat line if your window is big enough!
+B = smoothdata(data, method, window)
+% use a vector [kb kf] to specify the number of backward and forward points to include
+% i.e. calculates the moving average using the current point, 5 trailing points, and 2 leading points
+B = smoothdata(d,method,[5 2])
+________________________________________________________________________________________________
+% Linear Correlation
+% use the yyaxis command to create separate axes on the left and righ
+yyaxis left
+plot(x1,y1)
+yyaxis right
+plot(x2,y2)
+% calculate the correlation coefficient between two vectors
+c = corrcoef(v1,v2)
+% only sets of data (row) without missing values are included in the calculation
+corrcoef(A,B,"Rows","complete")
+% create a matrix of plots of all the sectors (columns)
+plotmatrix(arrayA)
+
+% Polynomial Fitting
+% finds the coefficients of the best fit n-th degree polynomial of yData in terms of xData
+cf = polyfit(xData,yData,n)
+% evaluates a polynomial (given by coefficients cf) at the points xData
+yEval = polyval(cf,xData)
+% To avoid the numerical precision limitations by centering and scaling the x data when using polyfit and polyval
+[c, ~, sc] = polyfit(x, y, deg)
+yFit = polyval(c, x, [], sc)
+___________________________________________________________________________________________________
+% User Interaction
+% show the user the warning message we specify
+msg = "This is a warning!"
+warning(msg)
+% display information to the user
+disp("Message to the user")
+% Create dialog boxes that display messages, errors, or warnings
+msgbox("Analysis complete","Complete!")
+errordlg("Data not found","Error!")
+warndlg("Missing values.","Warning!")
+____________________________________________________________________________________________________
+% Decision Branching
+% use the switch-case construction in place of an if-elseif-else construction
+switch expression
+    case value_1
+        code_1
+    case value_2
+        code_2
+    otherwise
+        code_3
+end
+
+% obtain the information of array size
+[yRow,yCol] = size(Array)
+ARow = size(Array,1)
+ACol = size(Array,2)
+% obtain the total number of elements in an array
+numel(array)
+
+% For Loops
+for index = first:increment:last
+    code
+end
+
+% while Loops
+while condition
+    statement 1
+    statement 2
+    statement 3
+    …
+end 
+_________________________________________________________________________________________________
 
 
 
