@@ -1,0 +1,6 @@
+% Scatter
+scatter(x,y,sz,col,"filled")
+% red, filled-in markers of size 100
+scatter(x,y,100,"r","filled
+% set the transparency(value:0-1)
+scatter(x,y,100,"r","filled","MarkerFaceAlpha", .5)
